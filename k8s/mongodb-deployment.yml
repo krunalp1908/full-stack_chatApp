@@ -4,7 +4,6 @@ metadata:
   name: mongodb
   namespace: chat-app
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: mongodb
@@ -15,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: iemafzal/f-s_mongodb:v1
+        image: mongo
         ports:
         - containerPort: 27017
         env:
@@ -29,4 +28,4 @@ spec:
       volumes:
       - name: mongo-data
         persistentVolumeClaim:
-          claimName: mongo-pvc
+          claimName: mongodb-pvc
